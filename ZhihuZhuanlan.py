@@ -4,7 +4,7 @@ import os
 import requests
 import pypandoc
 
-ZhuanlanID = '1250854045965189120'
+ZhuanlanID = '1250854045965189120' #盐选专栏ID
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'}
 cookies = {
