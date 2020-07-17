@@ -17,10 +17,6 @@ for offset_i in range(10):
     offset = str(offset_i * 20)
     CatalogUrl = 'https://api.zhihu.com/remix/well/{}/catalog?offset={}&limit=20&order_by=global_idx'.format(ZhuanlanID, offset)
     CatalogRequ = requests.get(url = CatalogUrl, headers = headers, cookies = cookies)
-
-    coo = CatalogRequ.cookies
-    CooRequ = requests.get(url = CatalogUrl, headers = headers)
-
     CatalogDict = json.loads(CatalogRequ.text)
     if not CatalogDict['data']:
         break
