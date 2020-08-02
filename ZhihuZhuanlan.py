@@ -11,7 +11,8 @@ cookies = {
     # 浏览器复制Cookies填在此处；Cookies包含个人登录密码，请勿外传。
 }
 
-os.makedirs(ZhuanlanID)
+if not os.path.exists(ZhuanlanID):
+    os.makedirs(ZhuanlanID)
 
 for offset_i in range(10):
     offset = str(offset_i * 20)
@@ -24,6 +25,8 @@ for offset_i in range(10):
         SectionIndex = SectionInfo['index']['serial_number_txt']
         SectionTitle = SectionInfo['title']
         SectionID = SectionInfo['id']
+        if os.path.exists('{}/{} {}.docx'.format(ZhuanlanID, SectionIndex, SectionTitle)):
+            continue
         SectionUrl = 'https://www.zhihu.com/market/paid_column/{}/section/{}'.format(ZhuanlanID, SectionID)
         SectionRequ = requests.get(url = SectionUrl, headers = headers, cookies = cookies)
         with open('temp.html', 'w+', encoding='utf-8') as html:
